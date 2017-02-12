@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-import { Segment, Header } from 'semantic-ui-react'
-// import './App.css';
-// import Hello from './Hello.jsx'
+import { Container, Header } from 'semantic-ui-react'
+import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <Segment>
-        <Header size='huge'>CLAP &#128079; THAT &#128079;</Header>
+      <Container text='true' className='main'>
+        <Header size='huge'>CLAP &#128079; THAT &#128079;&#127997; </Header>
         coming soon.
-      </Segment>
+      </Container>
     );
   }
 }
