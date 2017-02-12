@@ -32,7 +32,7 @@ class ClapForm extends Component {
           name='clapping_text'
           value={this.state.clapping_text}
           placeholder='stop writing boring posts'
-          rows='3'
+          rows='5'
           onChange={this.handleChange.bind(this)} />
         <Button primary size='massive' animated='fade'>
           <Button.Content visible>CLAP</Button.Content>
