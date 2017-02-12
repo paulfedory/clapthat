@@ -1,21 +1,16 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Hello from './Hello.jsx'
+// import logo from './logo.svg';
+import { Segment, Header } from 'semantic-ui-react'
+// import './App.css';
+// import Hello from './Hello.jsx'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <Hello name="Paul"/>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Segment>
+        <Header size='huge'>CLAP &#128079; THAT &#128079;</Header>
+        coming soon.
+      </Segment>
     );
   }
 }
