@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 // import './ClapForm.css';
 
 function clapify(text) {
@@ -34,7 +34,10 @@ class ClapForm extends Component {
           placeholder='stop writing boring posts'
           rows='3'
           onChange={this.handleChange.bind(this)} />
-        <Form.Button primary size='massive'>CLAP &#128079;</Form.Button>
+        <Button primary size='massive' animated='fade'>
+          <Button.Content visible>CLAP</Button.Content>
+          <Button.Content hidden>&#128079; &#128079; &#128079;</Button.Content>
+        </Button>
       </Form>
     );
   }
