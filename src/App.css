@@ -1,3 +1,7 @@
 .main.container {
   margin-top: 7em;
 }
+
+.main.container h1.huge.header {
+  font-size: 3.5em;
+}
