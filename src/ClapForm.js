@@ -3,10 +3,10 @@ import { Form, Button } from 'semantic-ui-react'
 import Emoji from './Emoji.js'
 // import './ClapForm.css';
 
-function clapify(text) {
+function clapify(text, emoji) {
   var clapped = text.toUpperCase();
-  clapped = clapped.replace(/ /g, " " + Emoji.for_color('standard') + " ");
-  clapped = clapped.concat(" " + Emoji.for_color('standard'));
+  clapped = clapped.replace(/ /g, " " + emoji + " ");
+  clapped = clapped.concat(" " + emoji);
   return clapped;
 }
 
@@ -22,7 +22,7 @@ class ClapForm extends Component {
 
   handleSubmit = (e, { formData }) => {
     e.preventDefault();
-    formData.clapping_text = clapify(formData.clapping_text);
+    formData.clapping_text = clapify(formData.clapping_text, Emoji.random());
     this.setState( formData );
   }
 
@@ -36,7 +36,7 @@ class ClapForm extends Component {
           rows='5'
           onChange={this.handleChange.bind(this)} />
         <Button.Group>
-        {Emoji.list().map((x,i) => <Button primary size='massive' key={i}>{x}</Button>)}
+        {Emoji.list().map((x,i) => <Button primary compact={true} size='massive' key={i}>{x}</Button>)}
         </Button.Group>
       </Form>
     );
