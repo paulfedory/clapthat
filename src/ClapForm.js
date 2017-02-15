@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextArea, Button } from 'semantic-ui-react'
+import { TextArea, Button, Icon } from 'semantic-ui-react'
 import Emoji from './Emoji.js'
 // import './ClapForm.css';
 
@@ -28,7 +28,7 @@ class ClapForm extends Component {
   render() {
     return (
       <div className="ui form massive">
-        <div className="ui field">
+        <div className="field">
           <TextArea
             name='clapping_text'
             value={this.state.clapping_text}
@@ -36,10 +36,22 @@ class ClapForm extends Component {
             rows='5'
             onChange={ this.handleChange } />
         </div>
-        <div className="ui field">
+        <div className="field">
           <Button.Group>
             {Emoji.list().map((x,i) => <Button primary compact={true} size='massive' onClick={ this.handleClick } key={i}>{x}</Button>)}
           </Button.Group>
+        </div>
+        <div className="field">
+          <Button icon="clipboard" content='Copy to Clipboard' labelPosition='left' />
+          <Button icon="remove" content='Reset' labelPosition='left' />
+        </div>
+        <div className="field">
+          <Button color='facebook'>
+            <Icon name='facebook' /> Post
+          </Button>
+          <Button color='twitter'>
+            <Icon name='twitter' /> Tweet
+          </Button>
         </div>
       </div>
     );
