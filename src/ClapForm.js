@@ -16,8 +16,8 @@ class ClapForm extends Component {
     this.state = {clapping_text: "stop writing boring posts"};
   }
 
-  handleChange(event) {
-    this.setState({clapping_text: event.target.value});
+  handleChange = (e) => {
+    this.setState({clapping_text: e.target.value});
   }
 
   handleClick = (e) => {
@@ -27,16 +27,20 @@ class ClapForm extends Component {
 
   render() {
     return (
-      <div>
-      <TextArea
-        name='clapping_text'
-        value={this.state.clapping_text}
-        placeholder='stop writing boring posts'
-        rows='5'
-        onChange={this.handleChange.bind(this)} />
-      <Button.Group>
-        {Emoji.list().map((x,i) => <Button primary compact={true} size='massive' onClick={ this.handleClick } key={i}>{x}</Button>)}
-      </Button.Group>
+      <div className="ui form massive">
+        <div className="ui field">
+          <TextArea
+            name='clapping_text'
+            value={this.state.clapping_text}
+            placeholder='stop writing boring posts'
+            rows='5'
+            onChange={ this.handleChange } />
+        </div>
+        <div className="ui field">
+          <Button.Group>
+            {Emoji.list().map((x,i) => <Button primary compact={true} size='massive' onClick={ this.handleClick } key={i}>{x}</Button>)}
+          </Button.Group>
+        </div>
       </div>
     );
   }
