@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Button } from 'semantic-ui-react'
+import { TextArea, Button } from 'semantic-ui-react'
 import Emoji from './Emoji.js'
 // import './ClapForm.css';
 
@@ -20,25 +20,24 @@ class ClapForm extends Component {
     this.setState({clapping_text: event.target.value});
   }
 
-  handleSubmit = (e, { formData }) => {
+  handleClick = (e) => {
     e.preventDefault();
-    formData.clapping_text = clapify(formData.clapping_text, Emoji.random());
-    this.setState( formData );
+    this.setState({ clapping_text: clapify(this.state.clapping_text, e.currentTarget.innerText) });
   }
 
   render() {
     return (
-      <Form size='massive' onSubmit={ this.handleSubmit }>
-        <Form.TextArea
-          name='clapping_text'
-          value={this.state.clapping_text}
-          placeholder='stop writing boring posts'
-          rows='5'
-          onChange={this.handleChange.bind(this)} />
-        <Button.Group>
-        {Emoji.list().map((x,i) => <Button primary compact={true} size='massive' key={i}>{x}</Button>)}
-        </Button.Group>
-      </Form>
+      <div>
+      <TextArea
+        name='clapping_text'
+        value={this.state.clapping_text}
+        placeholder='stop writing boring posts'
+        rows='5'
+        onChange={this.handleChange.bind(this)} />
+      <Button.Group>
+        {Emoji.list().map((x,i) => <Button primary compact={true} size='massive' onClick={ this.handleClick } key={i}>{x}</Button>)}
+      </Button.Group>
+      </div>
     );
   }
 }
