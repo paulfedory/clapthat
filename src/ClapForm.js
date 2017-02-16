@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Icon } from 'semantic-ui-react'
 import ClapTextArea from './ClapTextArea.js'
 import EmojiButtonList from './EmojiButtonList.js'
+import UtilityButtonList from './UtilityButtonList.js'
 // import './ClapForm.css';
 
 function clapify(text, emoji) {
@@ -25,16 +26,22 @@ class ClapForm extends Component {
     this.setState({ clapping_text: clapify(this.state.clapping_text, emoji) });
   }
 
+  removeText = () => {
+    this.onTextChange("");
+  }
+
+  copyToClipboard = () => {
+    // to do
+  }
+
   render() {
     return (
       <div className="ui form massive">
         <ClapTextArea onTextChange={ this.onTextChange }
                       value={ this.state.clapping_text } />
         <EmojiButtonList onClick={ this.addClaps } />
-        <div className="field">
-          <Button icon="clipboard" content='Copy to Clipboard' labelPosition='left' />
-          <Button icon="remove" content='Reset' labelPosition='left' />
-        </div>
+        <UtilityButtonList onCopyToClipboard={ this.copyToClipboard }
+                           onRemove={ this.removeText } />
         <div className="field">
           <Button color='facebook'>
             <Icon name='facebook' /> Post
