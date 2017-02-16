@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Button, Icon } from 'semantic-ui-react'
 import ClapTextArea from './ClapTextArea.js'
 import EmojiButtonList from './EmojiButtonList.js'
 import UtilityButtonList from './UtilityButtonList.js'
-// import './ClapForm.css';
+import SocialButtonList from './SocialButtonList.js'
 
 function clapify(text, emoji) {
   var clapped = text.toUpperCase();
@@ -30,9 +29,9 @@ class ClapForm extends Component {
     this.onTextChange("");
   }
 
-  copyToClipboard = () => {
-    // to do
-  }
+  copyToClipboard = () => {}
+  tweet = () => {}
+  post = () => {}
 
   render() {
     return (
@@ -42,14 +41,7 @@ class ClapForm extends Component {
         <EmojiButtonList onClick={ this.addClaps } />
         <UtilityButtonList onCopyToClipboard={ this.copyToClipboard }
                            onRemove={ this.removeText } />
-        <div className="field">
-          <Button color='facebook'>
-            <Icon name='facebook' /> Post
-          </Button>
-          <Button color='twitter'>
-            <Icon name='twitter' /> Tweet
-          </Button>
-        </div>
+        <SocialButtonList onPost={ this.post } onTweet={ this.tweet } />
       </div>
     );
   }
