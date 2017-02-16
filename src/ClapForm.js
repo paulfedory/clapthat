@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { TextArea, Button, Icon } from 'semantic-ui-react'
-import Emoji from './Emoji.js'
+import { Button, Icon } from 'semantic-ui-react'
+import ClapTextArea from './ClapTextArea.js'
+import EmojiButtonList from './EmojiButtonList.js'
 // import './ClapForm.css';
 
 function clapify(text, emoji) {
@@ -16,31 +17,20 @@ class ClapForm extends Component {
     this.state = {clapping_text: "stop writing boring posts"};
   }
 
-  handleChange = (e) => {
-    this.setState({clapping_text: e.target.value});
+  onTextChange = (new_text) => {
+    this.setState({clapping_text: new_text});
   }
 
-  handleClick = (e) => {
-    e.preventDefault();
-    this.setState({ clapping_text: clapify(this.state.clapping_text, e.currentTarget.innerText) });
+  addClaps = (emoji) => {
+    this.setState({ clapping_text: clapify(this.state.clapping_text, emoji) });
   }
 
   render() {
     return (
       <div className="ui form massive">
-        <div className="field">
-          <TextArea
-            name='clapping_text'
-            value={this.state.clapping_text}
-            placeholder='stop writing boring posts'
-            rows='5'
-            onChange={ this.handleChange } />
-        </div>
-        <div className="field">
-          <Button.Group>
-            {Emoji.list().map((x,i) => <Button primary compact={true} size='massive' onClick={ this.handleClick } key={i}>{x}</Button>)}
-          </Button.Group>
-        </div>
+        <ClapTextArea onTextChange={ this.onTextChange }
+                      value={ this.state.clapping_text } />
+        <EmojiButtonList onClick={ this.addClaps } />
         <div className="field">
           <Button icon="clipboard" content='Copy to Clipboard' labelPosition='left' />
           <Button icon="remove" content='Reset' labelPosition='left' />
