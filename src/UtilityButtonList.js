@@ -18,12 +18,12 @@ class UtilityButtonList extends Component {
         <Button
           onClick={ this.handleClipboardClick }
           icon="clipboard"
-          content="Copy to Clipboard"
+          content="Copy That"
           labelPosition="left" />
         <Button
           onClick={ this.handleRemoveClick }
           icon="remove"
-          content="Reset"
+          content="Reset That"
           labelPosition="left" />
       </div>
     );
