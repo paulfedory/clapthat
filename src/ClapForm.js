@@ -3,6 +3,7 @@ import ClapTextArea from './ClapTextArea.js'
 import EmojiButtonList from './EmojiButtonList.js'
 import UtilityButtonList from './UtilityButtonList.js'
 import SocialButtonList from './SocialButtonList.js'
+import copy from 'copy-to-clipboard'
 
 function clapify(text, emoji) {
   var clapped = text.toUpperCase();
@@ -29,7 +30,10 @@ class ClapForm extends Component {
     this.onTextChange("");
   }
 
-  copyToClipboard = () => {}
+  copyToClipboard = () => {
+    copy(this.state.clapping_text);
+  }
+
   tweet = () => {}
   post = () => {}
 
