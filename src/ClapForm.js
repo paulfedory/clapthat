@@ -34,7 +34,10 @@ class ClapForm extends Component {
     copy(this.state.clapping_text);
   }
 
-  tweet = () => {}
+  tweet = () => {
+    var options = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,';
+    window.open('http://twitter.com/intent/tweet?text=' + this.state.clapping_text, '', options+'height=254,width=600');
+  }
   post = () => {}
 
   render() {
