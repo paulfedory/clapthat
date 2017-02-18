@@ -36,9 +36,17 @@ class ClapForm extends Component {
 
   tweet = () => {
     var options = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,';
-    window.open('http://twitter.com/intent/tweet?text=' + this.state.clapping_text, '', options+'height=254,width=600');
+    var url = encodeURI('http://twitter.com/intent/tweet?text=' + this.state.clapping_text);
+    console.log(url);
+    window.open(url, '', options+'height=254,width=600');
   }
-  post = () => {}
+
+  post = () => {
+    var options = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,';
+    var url = encodeURI('https://www.facebook.com/sharer/sharer.php?u=https://clapthat.com&t=' + this.state.clapping_text);
+    console.log(url);
+    window.open(url, '', options+'height=300,width=600');
+  }
 
   render() {
     return (
