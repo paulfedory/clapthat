@@ -12,7 +12,7 @@ class ClapTextArea extends Component {
         <TextArea
           name='clapping_text'
           value={ this.props.value }
-          placeholder='stop writing boring posts'
+          placeholder='delete your boring tweets'
           rows='5'
           onChange={ this.handleChange } />
       </div>
