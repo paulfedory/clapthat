@@ -12,9 +12,19 @@ class UtilityButtonList extends Component {
     this.props.onRemove();
   }
 
+  handleTweetClick = (e) => {
+    e.preventDefault();
+    this.props.onTweet();
+  }
+
   render() {
     return (
       <div className="field">
+        <Button
+          onClick={ this.handleTweetClick }
+          icon="twitter"
+          content="Tweet That"
+          labelPosition="left" />
         <Button
           onClick={ this.handleClipboardClick }
           icon="clipboard"

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ClapTextArea from './ClapTextArea.js'
 import EmojiButtonList from './EmojiButtonList.js'
 import UtilityButtonList from './UtilityButtonList.js'
-import SocialButtonList from './SocialButtonList.js'
 import copy from 'copy-to-clipboard'
 
 function clapify(text, emoji) {
@@ -41,13 +40,6 @@ class ClapForm extends Component {
     window.open(url, '', options+'height=254,width=600');
   }
 
-  post = () => {
-    var options = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,';
-    var url = encodeURI('https://www.facebook.com/sharer/sharer.php?u=https://clapthat.com&t=' + this.state.clapping_text);
-    console.log(url);
-    window.open(url, '', options+'height=300,width=600');
-  }
-
   render() {
     return (
       <div className="ui form massive">
@@ -55,8 +47,8 @@ class ClapForm extends Component {
                       value={ this.state.clapping_text } />
         <EmojiButtonList onClick={ this.addClaps } />
         <UtilityButtonList onCopyToClipboard={ this.copyToClipboard }
-                           onRemove={ this.removeText } />
-        <SocialButtonList onPost={ this.post } onTweet={ this.tweet } />
+                           onRemove={ this.removeText }
+                           onTweet={ this.tweet } />
       </div>
     );
   }
