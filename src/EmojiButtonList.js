@@ -11,17 +11,15 @@ class EmojiButtonList extends Component {
   render() {
     return (
       <div className="field">
-        <Button.Group>
-          { Emoji.list().map((x,i) =>
-            <Button
-              primary
-              compact={true}
-              size='massive'
-              onClick={ this.handleClick }
-              key={i}>
-              {x}
-            </Button>) }
-        </Button.Group>
+        { Emoji.list().map((x,i) =>
+          <Button
+            primary
+            compact={true}
+            size='massive'
+            onClick={ this.handleClick }
+            key={i}>
+            {x}
+          </Button>) }
       </div>
 
     );

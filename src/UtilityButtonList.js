@@ -23,16 +23,19 @@ class UtilityButtonList extends Component {
         <Button
           onClick={ this.handleTweetClick }
           icon="twitter"
+          size="large"
           content="Tweet That"
           labelPosition="left" />
         <Button
           onClick={ this.handleClipboardClick }
           icon="clipboard"
+          size="large"
           content="Copy That"
           labelPosition="left" />
         <Button
           onClick={ this.handleRemoveClick }
           icon="remove"
+          size="large"
           content="Reset That"
           labelPosition="left" />
       </div>
