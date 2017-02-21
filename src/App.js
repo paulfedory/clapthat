@@ -12,6 +12,9 @@ class App extends Component {
       <Container text={ true } textAlign='center' className='main'>
         <Header size='huge' as='h1' color='red'>CLAP {random1} THAT {random2}</Header>
         <ClapForm />
+        <h4 className="ui header">
+          created by <a href="https://twitter.com/paulfedory" target="_blank">@paulfedory</a>
+        </h4>
       </Container>
     );
   }
