@@ -14,7 +14,7 @@ function clapify(text, emoji) {
 class ClapForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {clapping_text: "delete your boring tweets"};
+    this.state = {clapping_text: "write angrier tweets"};
   }
 
   onTextChange = (new_text) => {
